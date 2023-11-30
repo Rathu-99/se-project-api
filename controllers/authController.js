@@ -22,7 +22,7 @@ module.exports = {
       res.status(500).json({ message: `${error.message}` });
     }
   },
-
+  
   loginUser: async (req, res) => {
     try {
       const user = await User.findOne({ email: req.body.email });
