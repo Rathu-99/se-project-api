@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/user");
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
 
@@ -11,7 +11,8 @@ module.exports = {
         req.body.password,
         process.env.SECRET
       ).toString(),
-      location: req.body.location,
+      address: req.body.address,
+      phonenumber: req.body.phonenumber,
     });
 
     try {
