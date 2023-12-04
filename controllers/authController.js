@@ -5,14 +5,14 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   createUser: async (req, res) => {
     const newUser = new User({
-      username: req.body.username,
+      fullName: req.body.fullName,
       email: req.body.email,
       password: CryptoJS.AES.encrypt(
         req.body.password,
         process.env.SECRET
       ).toString(),
       address: req.body.address,
-      phonenumber: req.body.phonenumber,
+      phoneNumber: req.body.phoneNumber,
     });
 
     try {
