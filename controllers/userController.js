@@ -29,7 +29,7 @@ module.exports = {
         }
     },
 
-    createUser: async (req, res) =>{
+    createDonator: async (req, res) =>{
         try {
             const user = await donator.findById({
                 donatorname: req.body.donatorname,
