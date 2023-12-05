@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const { deleteUser, getUser, createDonator } = require("../controllers/userController");
+const { createDonator, getDonator, getDonee, createDonee, createRider, getRider } = require("../controllers/userController");
 
-router.delete("/:id", deleteUser);
-router.get("/:id", getUser);
 router.post("/createDonator", createDonator);
+router.get("/donator", getDonator);
+router.route("/donee").post(createDonee).get(getDonee);
+router.route("/rider").post(createRider).get(getRider);
 
 module.exports = router;
