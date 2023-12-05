@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const donator = require("../models/donator");
 
 
 module.exports = {
@@ -22,6 +23,26 @@ module.exports = {
             const { password, __v, createdAt, updatedAt, ...userData } = user._doc;
 
             res.status(200).json(userData);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: `${error.message}` });
+        }
+    },
+
+    createUser: async (req, res) =>{
+        try {
+            const user = await donator.findById({
+                donatorname: req.body.donatorname,
+                address: req.body.address,
+                phonenumber: req.body.phonenumber,
+                foodName: req.body.foodName,
+                foodType: req.body.foodType,
+                category: req.body.category,
+                mealValidTime: req.body.mealValidTime,
+                parcels: req.body.parcels,
+                paidOrNot: req.body.paidOrNot
+            })
+            res.status(200).json(user);
         } catch (error) {
             console.error(error);
             res.status(500).json({ message: `${error.message}` });
