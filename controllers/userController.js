@@ -31,7 +31,7 @@ module.exports = {
 
     createDonator: async (req, res) =>{
         try {
-            const user = await donator.findById({
+            const user = await donator.create({
                 donatorname: req.body.donatorname,
                 address: req.body.address,
                 phonenumber: req.body.phonenumber,
